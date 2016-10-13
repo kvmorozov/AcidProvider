@@ -3,6 +3,7 @@ package ru.kmorozov.librarian.data.heroku;
 import org.apache.zookeeper.server.ServerConfig;
 import org.apache.zookeeper.server.ZooKeeperServerMain;
 import org.apache.zookeeper.server.quorum.QuorumPeerConfig;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -10,15 +11,20 @@ import java.util.Properties;
 /**
  * Created by km on 12.10.2016.
  */
+
+@Component
 public class PostgreZooServer {
+
+    public static final int ZOO_PORT = 2128;
 
     private final ZooKeeperServerMain server;
     private final ServerConfig serverConfig;
 
     PostgreZooServer() {
         Properties properties = new Properties();
+        properties.put("dataDir", System.getProperty("java.io.tmpdir"));
         properties.put("dataLogDir", System.getProperty("java.io.tmpdir"));
-        properties.put("clientPort", 2128);
+        properties.put("clientPort", ZOO_PORT);
         properties.put("tickTime", 2000);
         properties.put("maxClientCnxns", 20);
 
@@ -45,5 +51,9 @@ public class PostgreZooServer {
                 }
             }
         }.start();
+    }
+
+    public ZooKeeperServerMain getServer() {
+        return server;
     }
 }

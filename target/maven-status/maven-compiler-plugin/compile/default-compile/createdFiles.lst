@@ -1,4 +1,5 @@
 ru\kmorozov\librarian\data\heroku\HerokuServer.class
 ru\kmorozov\librarian\data\heroku\PostgreZooServer$1.class
+ru\kmorozov\librarian\data\heroku\ZooController.class
 ru\kmorozov\librarian\data\heroku\PostgreSocketServer.class
 ru\kmorozov\librarian\data\heroku\PostgreZooServer.class
