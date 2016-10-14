@@ -15,7 +15,7 @@ import java.util.Properties;
 @Component
 public class PostgreZooServer {
 
-    private static final int DEFAULT_ZOO_PORT = 2128;
+    public static final int DEFAULT_ZOO_PORT = 2128;
 
     private final ZooKeeperServerMain server;
     private final ServerConfig serverConfig;

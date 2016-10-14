@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.concurrent.CountDownLatch;
 
-import static ru.kmorozov.librarian.data.heroku.PostgreZooServer.ZOO_PORT;
 import static ru.kmorozov.librarian.data.heroku.PostgreZooServer.getPort;
 
 /**

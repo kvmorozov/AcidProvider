@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.concurrent.CountDownLatch;
 
 import static org.junit.Assert.assertNotNull;
-import static ru.kmorozov.librarian.data.heroku.PostgreZooServer.ZOO_PORT;
+import static ru.kmorozov.librarian.data.heroku.PostgreZooServer.DEFAULT_ZOO_PORT;
 
 /**
  * Created by sbt-morozov-kv on 12.10.2016.
@@ -40,7 +40,7 @@ public class HerokuTest {
     public void herokuZooConnectTest() {
         try {
             CountDownLatch connSignal = new CountDownLatch(1);
-            ZooKeeper zoo = new ZooKeeper(HEROKU_HOST + ":" + ZOO_PORT, 5000, event -> {
+            ZooKeeper zoo = new ZooKeeper(HEROKU_HOST + ":" + DEFAULT_ZOO_PORT, 5000, event -> {
                 if (event.getState() == Watcher.Event.KeeperState.SyncConnected) {
                     connSignal.countDown();
                 }
