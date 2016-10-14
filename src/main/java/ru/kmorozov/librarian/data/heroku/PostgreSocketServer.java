@@ -6,12 +6,12 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import static ru.kmorozov.librarian.data.heroku.PostgreZooServer.getHerokuPort;
+
 /**
  * Created by sbt-morozov-kv on 12.10.2016.
  */
 public class PostgreSocketServer {
-
-    public static final int HEROKU_PORT = 2004;
 
     private ServerSocket providerSocket;
     private Socket connection = null;
@@ -22,7 +22,7 @@ public class PostgreSocketServer {
     void run() throws IOException {
         try {
             //1. creating a server socket
-            providerSocket = new ServerSocket(HEROKU_PORT, 10);
+            providerSocket = new ServerSocket(getHerokuPort(), 10);
             //2. Wait for connection
             System.out.println("Waiting for connection");
             connection = providerSocket.accept();

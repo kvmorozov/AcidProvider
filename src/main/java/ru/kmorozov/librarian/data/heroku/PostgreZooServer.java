@@ -24,7 +24,7 @@ public class PostgreZooServer {
         Properties properties = new Properties();
         properties.put("dataDir", System.getProperty("java.io.tmpdir"));
         properties.put("dataLogDir", System.getProperty("java.io.tmpdir"));
-        properties.put("clientPort", getPort());
+        properties.put("clientPort", getHerokuPort());
         properties.put("tickTime", 2000);
         properties.put("maxClientCnxns", 20);
 
@@ -46,7 +46,7 @@ public class PostgreZooServer {
         }
     }
 
-    public static int getPort() {
+    public static int getHerokuPort() {
         String herokuPort = System.getProperty("heroku.port");
 
         if (herokuPort == null || Integer.parseInt(herokuPort) <= 0)
