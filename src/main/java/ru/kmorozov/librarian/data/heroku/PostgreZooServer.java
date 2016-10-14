@@ -24,7 +24,7 @@ public class PostgreZooServer {
         Properties properties = new Properties();
         properties.put("dataDir", System.getProperty("java.io.tmpdir"));
         properties.put("dataLogDir", System.getProperty("java.io.tmpdir"));
-        properties.put("clientPort", ZOO_PORT);
+        properties.put("clientPort", System.getProperty("PORT"));
         properties.put("tickTime", 2000);
         properties.put("maxClientCnxns", 20);
 
