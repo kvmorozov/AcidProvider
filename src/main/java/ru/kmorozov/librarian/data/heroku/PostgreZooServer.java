@@ -15,7 +15,7 @@ import java.util.Properties;
 @Component
 public class PostgreZooServer {
 
-    public static final int ZOO_PORT = 2128;
+    public static final int ZOO_PORT = 34383;
 
     private final ZooKeeperServerMain server;
     private final ServerConfig serverConfig;
@@ -24,7 +24,7 @@ public class PostgreZooServer {
         Properties properties = new Properties();
         properties.put("dataDir", System.getProperty("java.io.tmpdir"));
         properties.put("dataLogDir", System.getProperty("java.io.tmpdir"));
-        properties.put("clientPort", System.getProperty("PORT"));
+        properties.put("clientPort", ZOO_PORT);
         properties.put("tickTime", 2000);
         properties.put("maxClientCnxns", 20);
 
