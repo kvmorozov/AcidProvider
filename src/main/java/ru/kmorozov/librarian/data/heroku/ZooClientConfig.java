@@ -21,7 +21,7 @@ public class ZooClientConfig {
         CountDownLatch connSignal = new CountDownLatch(1);
         ZooKeeper zoo = null;
         try {
-            zoo = new ZooKeeper("localhost" + ":" + ZOO_PORT, 5000, event -> {
+            zoo = new ZooKeeper("127.0.0.1" + ":" + ZOO_PORT, 5000, event -> {
                 if (event.getState() == Watcher.Event.KeeperState.SyncConnected) {
                     connSignal.countDown();
                 }
