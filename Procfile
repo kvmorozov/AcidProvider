@@ -1,1 +1,1 @@
-web: java -jar target/MetadataProvider-1.0-SNAPSHOT.jar
+web: java -Dheroku.port=$PORT -jar target/MetadataProvider-1.0-SNAPSHOT.jar
