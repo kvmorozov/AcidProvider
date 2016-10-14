@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.concurrent.CountDownLatch;
 
 import static ru.kmorozov.librarian.data.heroku.PostgreZooServer.ZOO_PORT;
+import static ru.kmorozov.librarian.data.heroku.PostgreZooServer.getPort;
 
 /**
  * Created by sbt-morozov-kv on 13.10.2016.
@@ -21,7 +22,7 @@ public class ZooClientConfig {
         CountDownLatch connSignal = new CountDownLatch(1);
         ZooKeeper zoo = null;
         try {
-            zoo = new ZooKeeper("127.0.0.1" + ":" + ZOO_PORT, 5000, event -> {
+            zoo = new ZooKeeper("127.0.0.1" + ":" + getPort(), 5000, event -> {
                 if (event.getState() == Watcher.Event.KeeperState.SyncConnected) {
                     connSignal.countDown();
                 }

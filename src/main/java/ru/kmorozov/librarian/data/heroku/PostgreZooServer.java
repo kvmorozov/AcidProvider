@@ -15,7 +15,7 @@ import java.util.Properties;
 @Component
 public class PostgreZooServer {
 
-    public static final int ZOO_PORT = 2128;
+    private static final int DEFAULT_ZOO_PORT = 2128;
 
     private final ZooKeeperServerMain server;
     private final ServerConfig serverConfig;
@@ -46,11 +46,11 @@ public class PostgreZooServer {
         }
     }
 
-    private int getPort() {
+    public static int getPort() {
         String herokuPort = System.getProperty("heroku.port");
 
         if (herokuPort == null || Integer.parseInt(herokuPort) <= 0)
-            return ZOO_PORT;
+            return DEFAULT_ZOO_PORT;
         else
             return Integer.parseInt(herokuPort);
     }
