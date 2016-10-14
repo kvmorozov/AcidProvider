@@ -27,6 +27,7 @@ public class PostgreZooServer {
         properties.put("clientPort", getHerokuPort());
         properties.put("tickTime", 2000);
         properties.put("maxClientCnxns", 20);
+        properties.put("electionAlg", 0);
 
         QuorumPeerConfig config = new QuorumPeerConfig();
         try {
